@@ -1,0 +1,103 @@
+.ana{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    width: 100%;
+    padding: 20px 8px 0 0px;
+}
+.masinlar{
+    height: 230px;
+    
+    width: 22%;
+    margin: 0px 9px 0 22px;
+}
+.masinlar img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.masinlar ul{
+    display: flex;
+    padding: 0;
+    margin: 0 0 0 -4px;
+}
+.masinlar ul li{
+    margin: 0 0 0 5px;
+}
+.cars__orders{
+    display: flex;
+    justify-content: center;
+    background: rgb(0 98 101);
+    width: 50%;
+    height: 25px;
+    position: relative;
+    top: -25px;
+    left: calc(100% - 50%);
+    border-radius: 2px;
+}
+.cars__info{
+    margin-top: -20px;
+}
+.cars__info div{
+    display: flex;
+    margin: 0 0 0 -9px;
+}
+.cars__info div h5{
+    color: black;
+    font-weight:bold;
+    margin-left: 10px;
+}
+.cars__orders p{
+    display: flex;
+    margin: 0;
+    color: white;
+    font-size: 16px;
+}
+.elan{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 50px 15px 0 18px;
+}
+    .elan h3 {
+        color: #006265;
+        font-weight: bold;
+    }
+    .elan a {
+        text-decoration: none;
+        color: #006265;
+    }
+.elan a:hover{
+    color: rgb(0 98 101);
+    transition: 0.3s linear;
+}
+@media screen and (max-width: 768px){
+    .ana{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cars__info div h5{
+        font-size: 16px;
+        font-weight: bold;
+        word-break: break-all;
+    }
+    .masinlar{
+        width: 41%;
+        margin-top: 20px;
+        transition: 0.4s ease;
+    }.masinlar img{
+        width: 100%;
+        height: 150px;
+        object-fit: fill;
+    }
+    
+    .masinlar ul li{
+        font-size: 12px;
+    }
+    .cars__orders p{
+        font-size: 14px;
+        padding: 3px 0 0 0;
+    }
+    
+}

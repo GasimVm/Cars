@@ -1,0 +1,230 @@
+﻿@using Forsaj.Models.Tables;
+@{ 
+    List<Marka> Markas = ViewBag.Marka;
+    List<Model_Cars> ModelCars = ViewBag.ModelCars;
+    List<Country> Countries = ViewBag.Country;
+    List<City> City = ViewBag.City;
+    List<Ban_Type> Ban_Type = ViewBag.Ban_Type;
+    List<Transmission> Transmissions = ViewBag.Transmissions;
+    List<Speed_Type> Speed_Types = ViewBag.Speed_Types;
+    List<Currency> Currencies = ViewBag.Currencies;
+    List<Fuel_Type> Fuel_Types = ViewBag.Fuel_Types;
+    List<Power> Powers = ViewBag.Powers;
+    List<Color> Colors = ViewBag.Colors;
+    List<Year> Years = ViewBag.Years;
+
+}
+
+<div class="full_search">
+    <div class="fırst tak">
+        <label for="">Ölkəni seçin</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün ölkələr</option>
+            @foreach (var item in Countries)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="second">
+        <label for="">Valyuta</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün</option>
+            @foreach (var item in Currencies)
+            {
+                <option value="@item.Id">@item.Money</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="full_search">
+    <div class="fırst">
+        <label for="">Marka</label>
+        <select class="search_result" name="" id="Marka">
+            <option value="0">Bütün markalar</option>
+            @foreach (var item in Markas)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="second">
+        <label for="">Model</label>
+        <select class="search_result" name="" id="Model">
+            <option value="Lada">Bütün modellər</option>
+            @foreach (var item in ModelCars)
+            {
+                <option value="@item.Id" hidden data-parentId="@item.MarkaId">@item.Name</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="full_search">
+    <div class="fırst">
+        <label for="">Şəhər</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün şəhərlər</option>
+            @foreach (var item in City)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="second tak">
+        <label for="">Yanacaq növü</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün tiplər</option>
+            @foreach (var item in Fuel_Types)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="full_search">
+    <div class="fırst tak">
+        <label for="">Ban növü</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün tiplər</option>
+            @foreach (var item in Ban_Type)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="second">
+        <label for="">Ötürücü</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün tiplər</option>
+            @foreach (var item in Transmissions)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="full_search">
+    <div class="fırst">
+        <label for="">Rəng</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün</option>
+            @foreach (var item in Colors)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="second tak">
+        <label for="">Sürətlər qutusu</label>
+        <select class="search_result" name="" id="">
+            <option value="Lada">Bütün</option>
+            @foreach (var item in Speed_Types)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="full_search">
+    <div class="fırst">
+        <label for="">Yürüş</label>
+        <label class="lb" for="">min</label>
+        <input class="inp" type="text" placeholder="">
+        <label style="
+                                    margin: 0px 4px 0px 13px;;
+                                " class="lb" for="">max</label>
+        <input class="inp" type="text" placeholder="">
+    </div>
+    <div class="second">
+        <label for="">Buraxılış</label>
+        <label class="lb" for="">min</label>
+        @*<input class="inp" type="text" placeholder="">*@
+        <select class="inp" name="" id="">
+            <option value="Lada">Bütün</option>
+            @foreach (var item in Years)
+            {
+                <option value="@item.Id">@item.Create_Year</option>
+            }
+        </select>
+        <label style="
+                                    margin: 0px 4px 0px 13px;;
+                                " class="lb" for="">max</label>
+        <select class="inp" name="" id="">
+            <option value="Lada">Bütün</option>
+            @foreach (var item in Years)
+            {
+                <option value="@item.Id">@item.Create_Year</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="full_search">
+    <div class="fırst aper">
+        <label for="">Qiymət</label>
+        <label class="lb" for="">min</label>
+        <input class="inp" type="text" placeholder="">
+        <label style="
+                                    margin: 0px 4px 0px 13px;"
+               class="lb" for="">max</label>
+        <input class="inp" type="text" placeholder="">
+    </div>
+    <div class="fırst">
+        <label for="">Mühərrik</label>
+        <label class="lb" for="">min</label>
+        <select class="search_res" name="" id="">
+            <option value="Lada">Bütün</option>
+            @foreach (var item in Powers)
+            {
+                <option value="@item.Id">@item.Capacity</option>
+            }
+        </select>
+        <label style="
+                                    margin: 0 0 0 17px;
+                                " class="lb" for="">max</label>
+        <select class="search_res" name="" id="">
+            <option value="Lada">Bütün</option>
+            @foreach (var item in Powers)
+            {
+                <option value="@item.Id">@item.Capacity</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="extra_details">
+    <h3>Avtomobilin təchizatı</h3>
+</div>
+<div class="main_extra_details">
+    <div class="extra_1">
+        <input class="" id="1" type="checkbox">
+        <label for="1">ABS</label>
+        <input class="" id="2" type="checkbox">
+        <label for="2">Yüngül lehimli disklər</label>
+        <input class="" id="3" type="checkbox">
+        <label for="3">Dəri salon</label>
+        <input class="" id="4" type="checkbox">
+        <label for="4">Oturacaqların ventilyasiyası</label>
+    </div>
+    <div class="extra_1">
+        <input class="" id="5" type="checkbox">
+        <label for="5">Mərkəzi qapanma</label>
+        <input class="" id="6" type="checkbox">
+        <label for="6">Park radarı</label>
+        <input class="" id="7" type="checkbox">
+        <label for="7">Ksenon lampalar</label>
+        <input class="" id="8" type="checkbox">
+        <label for="8">Lyuk</label>
+    </div>
+    <div class="extra_1">
+        <input class="" id="9" type="checkbox">
+        <label for="9">Kondisioner</label>
+        <input class="" id="10" type="checkbox">
+        <label for="10">Arxa görüntü kamerası</label>
+        <input class="" id="11" type="checkbox">
+        <label for="11">Oturacaqların isidilməsir</label>
+        <input class="" id="12" type="checkbox">
+        <label for="12">Yan pərdələr</label>
+        <input class="" id="13" type="checkbox">
+        <label for="13">Yağış sensoru</label>
+    </div>
+
+</div>

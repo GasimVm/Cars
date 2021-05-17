@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Filter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="filter">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="details">
+                    <h3>Ətraflı Axtarış</h3>
+                </div>
+                <form action="">
+                    @Html.Partial("_FilterPartialView");
+                    <div class="main_search_button">
+                        <button>Axtar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/CustomScript/ChangeMarka.js"></script>
+}
