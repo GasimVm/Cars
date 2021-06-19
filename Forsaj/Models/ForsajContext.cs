@@ -14,7 +14,6 @@ namespace Forsaj.Models
         }
         public DbSet<Login_Log> Login_Logs { get; set; }
         public DbSet<Ban_Type>  Ban_Types { get; set; }
-        public DbSet<Cars_Details> Cars_Details { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Company> Companies { get; set; }
@@ -31,7 +30,6 @@ namespace Forsaj.Models
         public DbSet<Transmission> Transmissions { get; set; }
         public DbSet<Year> Years { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Post_Images> Post_Images { get; set; }
         public DbSet<Details> Details { get; set; }
 
 
@@ -50,6 +48,10 @@ namespace Forsaj.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Login_Log>()
+             .Property(b => b.CreateDate)
+             .HasDefaultValueSql("GETDATE()");
+
+            modelBuilder.Entity<Post>()
              .Property(b => b.CreateDate)
              .HasDefaultValueSql("GETDATE()");
 

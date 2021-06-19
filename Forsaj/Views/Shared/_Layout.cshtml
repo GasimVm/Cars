@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="login.html">
+                                <a href="../Account/Login">
                                     <div class="mobile-bottom-nav__item">
                                         <div class="mobile-bottom-nav__item-content">
                                             <i class="fa fa-user" style="font-size: 20pt; margin-left: 5px;" aria-hidden="true"></i>
@@ -63,7 +63,7 @@
                                 <span class="newsads">Yeni elan</span>
                             </div>
                             <div class="appbar__bottom--normal d-flex justify-content-around align-content-around align-items-center">
-                                <a href="carfax.html">
+                                <a href="../Home/Carfax">
                                     <div class="mobile-bottom-nav__item">
                                         <div class="mobile-bottom-nav__item-content">
                                             <i class="fa fa-car" style="font-size: 20pt; margin-left: 5px;" aria-hidden="true"></i>
@@ -88,7 +88,7 @@
                             <label for="menu-toggle" class="menu-icon">
                                 <span></span>
                             </label>
-                            <a class="adv_button button" href="add_advertisement.html"><i class="fa fa-plus sc" aria-hidden="true"></i>Elan yerləşdir</a>
+                            <a class="adv_button button" href="../Home/AddPost"><i class="fa fa-plus sc" aria-hidden="true"></i>Elan yerləşdir</a>
                         </div>
 
 
@@ -97,21 +97,21 @@
                                 <ul>
                                     <!-- ayqa elan yerlesdir hissesi iki yerdedi biride yuxaridadi -->
                                     <li class="addPost"><a class="adv_button button al" href="../Home/AddPost"><i class="fa fa-plus sc" aria-hidden="true"></i>Elan yerləşdir</a></li>
-                                    <li><a href="#">Haqqımızda</a></li>
-                                    <li><a href="#">Əlaqə</a></li>
+                                    <li><a href="#footer">Haqqımızda</a></li>
+                                    <li><a href="#contact">Əlaqə</a></li>
                                     <li>
-                                        <a href="login.html">
+                                        <a href="../Account/Login">
                                             <p>Login</p>
                                         </a>
                                     </li>
-                                    <li><a href="registration.html" class="fancy-button pop-onhover bg-gradient3"><span>Sign in</span></a></li>
+                                    <li><a href="../Account/Registration" class="fancy-button pop-onhover bg-gradient3"><span>Sign in</span></a></li>
 
                                 </ul>
                             </nav>
                         </header>
 
                         <a class="navbar-brand" href="../Home/Index" style="padding:0px;">
-                            <img  class="logo" src="~/Custom/images/hsn2.png" />
+                            <img class="logo" src="~/Custom/images/hsn2.png" />
                         </a>
                     </div>
                 </header>
@@ -119,12 +119,12 @@
         </div>
     </div>
     @RenderBody()
-    <footer class="site-footer">
+    <footer class="site-footer" id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="footer_img">
-                        <img  src="~/Custom/images/hsn2.png" />
+                        <img src="~/Custom/images/hsn2.png" />
                     </div>
                     <p class="text-justify1">Forsaj.az komandası olaraq,sizə Almaniya,Amerika,Gürcüstan,Koreya və Azərbaycan maşınlarını bir arada topladıq.Administrasiya saytda yerləşdirilən banner reklamları və elanların məzmununa görə məsuliyyət daşımır  </p>
                 </div>
@@ -132,7 +132,7 @@
 
 
                 <div class="col-xs-6 col-md-6">
-                    <div class="footer_-right">
+                    <div class="footer_-right" id="contact">
                         <h6>Bizimlə əlaqə</h6>
                         <ul class="footer-links">
                             <li><i class="fa fa-home"></i><a href="">Ünvan: Yeni Günəşli qəsəbəsi 125A</a></li>
@@ -170,13 +170,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    @* <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+    <script src="~/Layout/jquery/jquery.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="~/Custom/app/jquery.inputmask.bundle.min.js"></script>
     <script src="~/Custom/app/ssi-uploader.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         var notifyOptions = {
             iconButtons: {

@@ -1,0 +1,37 @@
+﻿@using Forsaj.Models.Tables;
+@model List<Post>;
+@{
+    List<Marka> Markas = ViewBag.Marka;
+    List<Model_Cars> ModelCars = ViewBag.ModelCars;
+    List<Country> Countries = ViewBag.Country;
+    List<Image> images = ViewBag.Images;
+
+
+}
+@foreach (var item in Model)
+{
+    <div class="masinlar">
+        <a href="../Home/Details?id=@item.Id">
+            <img src="~/Document/Files2021/@images.Where(c=>c.PostId==item.Id).First().URL" alt="">
+            <div class="cars__about_clr">
+                <div class="cars__orders">
+                    <p>
+                        @item.Price @item.Currency.Money
+                    </p>
+                </div>
+                <div class="cars__info">
+                    <div>
+                        <h5>@item.Model_Cars.Name</h5>
+                        <h5>@item.Model_Cars.Marka.Name</h5>
+                    </div>
+                </div>
+
+                <ul>
+                    <li>@item.Year.Create_Year il</li>
+                    <li>@item.Power.Capacity</li>
+                    <li>@item.Probeg km</li>
+                </ul>
+            </div>
+        </a>
+    </div>
+}

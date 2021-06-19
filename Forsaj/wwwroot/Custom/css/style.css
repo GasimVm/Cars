@@ -144,7 +144,7 @@ a:active {
     top: 9px;
 }
 .form-group button{
-    background-color:rgb(0 98 101);
+    background-color:rgb(0 98 83);
     transition: 0.9s ease;
     border: none;
 }
@@ -215,7 +215,7 @@ p {
 .mobile_new_panel{
     width: 100%;
     height: 62px;
-    background-color: rgb(0 98 101);
+    background-color: rgb(0 98 83);
     position: fixed;
     bottom: 0;
     right: 0;
@@ -446,12 +446,12 @@ p {
 }
 
 .navbar-brand>img {
-    height: 150px;
+    height: 100px;
     width: auto;
     z-index: 10;
     position: absolute;
-    top: -30.55px;
-    left: -22px;
+    top: -11.55px;
+    left: -24px;
     /* padding: 0 25px; */
     /*BAR HOW MUCH IN RIGHT*/
 }
@@ -617,10 +617,10 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #sync1 .item img{
-      object-fit: cover !important;
-      height: 158px;
-  }
+    #sync1 .item img {
+        object-fit: contain !important;
+        height: 158px;
+    }
   #sync2 .item {
     /* background: #C9C9C9;
     padding: 10px 0px; */
@@ -686,7 +686,7 @@ img {
 .mashin_qiymeti{
     height:134px;
     width: 100%;
-    background:rgb(0 98 101) ;
+    background:rgb(0 98 83) ;
     color: white;
     padding: 2px 0 0 10px;
     border-radius: 4px;
@@ -738,7 +738,7 @@ img {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgb(0 98 101);
+        background: rgb(0 98 83);
         color: white;
         height: 37px;
     }
@@ -755,7 +755,7 @@ img {
     margin-top: 50px;
 }
 .footer_img{
-    width: 150px;
+    width: 200px;
     height: 150px;
     margin: -44px 0 -53px -39px;
 
@@ -767,10 +767,10 @@ img {
 .marg{
     margin-top: 0;
 }
-#sync1 .item img{
-    height: 350px;
-    object-fit: cover !important;
-}
+    #sync1 .item img {
+        height: 350px;
+        object-fit: contain !important;
+    }
 .eln_right {
     width: 100%;
     display: flex;
@@ -798,7 +798,7 @@ img {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgb(0 98 101 / 79%);
+    background: rgb(0 98 83 / 79%);
     color: white;
     border-radius: 4px;
 }
@@ -927,12 +927,14 @@ textarea{
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background: rgb(0 98 101);
+        background: rgb(0 98 83);
         margin-right: 80px;
 
     }
     .al{
         color: white !important;
     }
-    
+    .redColor{
+        color:red;
+    }
 }   

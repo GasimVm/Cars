@@ -31,6 +31,14 @@ namespace Forsaj.Models.Tables
         [Column("LYUK")]
         public bool Lyuk { get; set; }
 
+        [ForeignKey("Model_Cars_Id")]
+        [Column("MODEL_CARS_ID")]
+        public int? Model_Cars_Id { get; set; }
+        public virtual Model_Cars Model_Cars { get; set; }
+
+        [Column("CONDITIONER")]
+        public bool Conditioner { get; set; }
+
         public virtual ICollection<Post> Posts { get; set; }
 
 

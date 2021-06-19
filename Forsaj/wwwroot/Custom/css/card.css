@@ -27,7 +27,7 @@
 .cars__orders{
     display: flex;
     justify-content: center;
-    background: rgb(0 98 101);
+    background: rgb(0 98 83);
     width: 50%;
     height: 25px;
     position: relative;
@@ -68,7 +68,7 @@
         color: #006265;
     }
 .elan a:hover{
-    color: rgb(0 98 101);
+    color: rgb(0 98 83);
     transition: 0.3s linear;
 }
 @media screen and (max-width: 768px){

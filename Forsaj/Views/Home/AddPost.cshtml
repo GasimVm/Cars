@@ -19,263 +19,342 @@
     List<Year> Years = ViewBag.Years;
 
 }
-<section class="filter">
+
+@section Styles{
+    <style>
+        .createPost {
+             visibility: hidden;
+        }
+    </style>
+}
+<div class="container checkTelefon">
+    <div class="row">
+        <div class="col-12">
+            <div class="login">
+                <div class="card card-default mt-3 mb-3">
+                    <div class="panel-intro text-center pb-0">
+                        <h4> YENİ ELAN</h4>
+                        <h5 class="logo-title">
+                            30 gün ərzində Kuza.az saytında yalnız bir pulsuz elan yerləşdirmək olar.
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="FormAnswer"></div>
+                        <div class="row">
+                            <div class=" col-4 offset-4">
+                                <label for="sender-tel" class="control-label">Əlaqə nömrəsi</label>
+                                <div class="input-icon">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <input type="tel" name="phone" class="form-control era_check_number " id="phone" data-inputmask='"mask": "(999) 999-99-99"' data-mask placeholder="(xxx) xxx-xx-xx">
+                                </div>
+                                <div class="col-12 col-md-12 py-1">
+                                    <button type="button" style="background:rgb(0 98 83); color:white;" class="btn   btn-block checkNumber">Davam etmək</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="filter createPost">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="details">
                     <h3>Elan yerləşdir</h3>
                 </div>
-                <form action="">
-                    <div class="full_search">
-                        <div class="fırst tak">
-                            <label for="">Ölkəni seçin</label>
-                            <select class="search_result" name="" id="">
-                                <option value="0">Bütün ölkələr</option>
-                                @foreach (var item in Countries)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="fırst">
-                            <label for="">Şəhər</label>
-                            <select class="search_result" name="" id="">
-                                <option value="0">Bütün şəhərlər</option>
-                                @foreach (var item in City)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
-                        
+                @*<div class="full_search">
+            <div class="fırst tak">
+                <label for="">Ölkəni seçin</label>
+                <select class="search_result country">
+                    @foreach (var item in Countries)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="fırst">
+                <label>Şəhər<span class="redColor">*</span></label>
+                <select class="search_result city" name="">
+
+                    @foreach (var item in City)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+        </div>*@
+                <div class="full_search">
+                    <div class="fırst">
+                        <label>Marka <span class="redColor">*</span></label>
+                        <select class="search_result" id="Marka">
+                            <option value="0">Bütün markalar</option>
+                            @foreach (var item in Markas)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
                     </div>
-                    <div class="full_search">
-                        <div class="fırst">
-                            <label for="">Marka</label>
-                            <select class="search_result" name="" id="Marka">
-                                <option value="0">Bütün markalar</option>
-                                @foreach (var item in Markas)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="second">
-                            <label for="">Model</label>
-                            <select class="search_result" name="" id="Model">
-                                <option value="0">Bütün modellər</option>
-                                @foreach (var item in ModelCars)
-                                {
-                                    <option value="@item.Id" hidden data-parentId="@item.MarkaId">@item.Name</option>
-                                }
-                            </select>
-                        </div>
+                    <div class="second">
+                        <label for="">Model <span class="redColor">*</span></label>
+                        <select class="search_result modelMarka" id="Model">
+                            <option value="0">Bütün modellər</option>
+                            @foreach (var item in ModelCars)
+                            {
+                                <option value="@item.Id" data-parentId="@item.MarkaId" hidden>@item.Name</option>
+                            }
+                        </select>
                     </div>
-                    <div class="full_search">
-                        <div class="second">
-                            <label for="">Valyuta</label>
-                            <select class="search_result" name="" id="">
-                                <option value="0">Bütün</option>
-                                @foreach (var item in Currencies)
-                                {
-                                    <option value="@item.Id">@item.Money</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="second tak">
-                            <label for="">Yanacaq növü</label>
-                            <select class="search_result" name="" id="">
-                                <option value="0">Bütün tiplər</option>
-                                @foreach (var item in Fuel_Types)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
+                </div>
+                <div class="full_search">
+                    <div class="second">
+                        <label for="">Valyuta <span class="redColor">*</span></label>
+                        <select class="search_result currency">
+                            <option value="0">Bütün</option>
+                            @foreach (var item in Currencies)
+                            {
+                                <option value="@item.Id">@item.Money</option>
+                            }
+                        </select>
                     </div>
-                    <div class="full_search">
-                        <div class="fırst tak">
-                            <label for="">Ban növü</label>
-                            <select class="search_result" name="" id="">
-                                <option value="Lada">Bütün tiplər</option>
-                                @foreach (var item in Ban_Type)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="second">
-                            <label for="">Ötürücü</label>
-                            <select class="search_result" name="" id="">
-                                <option value="0">Bütün tiplər</option>
-                                @foreach (var item in Transmissions)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
+                    <div class="second tak">
+                        <label for="">Yanacaq növü<span class="redColor">*</span></label>
+                        <select class="search_result fuelType">
+                            <option value="0">Bütün tiplər</option>
+                            @foreach (var item in Fuel_Types)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
                     </div>
-                    <div class="full_search">
-                        <div class="fırst">
-                            <label for="">Rəng</label>
-                            <select class="search_result" name="" id="">
-                                <option value="0">Bütün</option>
-                                @foreach (var item in Colors)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="second tak">
-                            <label for="">Sürətlər qutusu</label>
-                            <select class="search_result " name="" id="">
-                                <option value="0">Bütün</option>
-                                @foreach (var item in Speed_Types)
-                                {
-                                    <option value="@item.Id">@item.Name</option>
-                                }
-                            </select>
-                        </div>
+                </div>
+                <div class="full_search">
+                    <div class="fırst tak">
+                        <label for="">Ban növü <span class="redColor">*</span></label>
+                        <select class="search_result banType ">
+                            <option value="0">Bütün tiplər</option>
+                            @foreach (var item in Ban_Type)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
                     </div>
-                    <div class="full_search">
-                        <div class="fırst">
-                            <label for="">Yürüş</label>
-                            <input class="inp" style="
-                                width: 250px;
-                            " type="number" placeholder="10000">
-                        </div>
-                        <div class="second">
-                            <label for="">Buraxılış</label>
-                            <select class="search_res at" name="" id="">
-                                <option value="Lada">Bütün</option>
-                                @foreach (var item in Years)
-                                {
-                                    <option value="@item.Id">@item.Create_Year</option>
-                                }
-                            </select>
-                        </div>
+                    <div class="second">
+                        <label for="">Ötürücü<span class="redColor">*</span></label>
+                        <select class="search_result transmissions">
+                            <option value="0">Bütün tiplər</option>
+                            @foreach (var item in Transmissions)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
                     </div>
-                    <div class="full_search">
-                        <div class="fırst aper">
-                            <label for="">Qiymət</label>
-                            <input class="inp" style="
-                                width: 250px;
-                            " type="number" placeholder="10000">
-                        </div>
-                        <div class="second">
-                            <label for="">Mühərrik</label>
-                            <select class="search_res at" name="" id="">
-                                <option value="Lada">Bütün</option>
-                                @foreach (var item in Powers)
-                                {
-                                    <option value="@item.Id">@item.Capacity</option>
-                                }
-                            </select>
-                        </div>
+                </div>
+                <div class="full_search">
+                    <div class="fırst">
+                        <label for="">Rəng<span class="redColor">*</span></label>
+                        <select class="search_result colorCar">
+                            <option value="0">Bütün</option>
+                            @foreach (var item in Colors)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
                     </div>
+                    <div class="second tak">
+                        <label for="">Sürətlər qutusu<span class="redColor">*</span></label>
+                        <select class="search_result speedType ">
+                            <option value="0">Bütün</option>
+                            @foreach (var item in Speed_Types)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="full_search">
+                    <div class="fırst">
+                        <label for="">Yürüş<span class="redColor">*</span></label>
+                        <input class="inp probeg" style=" width: 250px; " type="number" placeholder="10000">
+                    </div>
+                    <div class="second">
+                        <label for="">Buraxılış ili<span class="redColor">*</span></label>
+                        <select class="search_res at year">
+                            <option value="0">Bütün</option>
+                            @foreach (var item in Years)
+                            {
+                                <option value="@item.Id">@item.Create_Year</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="full_search">
+                    <div class="fırst aper">
+                        <label for="">Qiymət<span class="redColor">*</span></label>
+                        <input class="inp price" style=" width: 250px; " type="number" placeholder="10000">
+                    </div>
+                    <div class="second">
+                        <label for="">Mühərrikin həcmi, sm3<span class="redColor">*</span></label>
+                        <select class="search_res at power">
+                            <option value="0">Bütün</option>
+                            @foreach (var item in Powers)
+                            {
+                                <option value="@item.Id">@item.Capacity</option>
+                            }
+                        </select>
+                    </div>
+                </div>
 
 
-                    <div class="full_search">
-                        <div class="fırst kll">
-                            <label for="">Ətraflı</label>
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Maşın haqqında ətraflı məlumat yazınız."></textarea>
-                        </div>
+                <div class="full_search">
+                    <div class="fırst kll">
+                        <label>Ətraflı</label>
+                        <textarea class="note" cols="30" rows="10" placeholder="Maşın haqqında ətraflı məlumat yazınız."></textarea>
                     </div>
-                    <div class="extra_details">
-                        <h3>Avtomobilin təchizatı</h3>
+                    <div class="fırst">
+                        <label for="">Mühərrikin gücü<span class="redColor">*</span></label>
+                        <input class="inp hPower" style=" width: 250px; " type="number"  >
                     </div>
-                    <div class="main_extra_details">
-                        <div class="extra_1">
-                            <input class="" id="1" type="checkbox">
-                            <label for="1">ABS</label>
-                            <input class="" id="2" type="checkbox">
-                            <label for="2">Yüngül lehimli disklər</label>
-                            <input class="" id="3" type="checkbox">
-                            <label for="3">Dəri salon</label>
-                            <input class="" id="4" type="checkbox">
-                            <label for="4">Oturacaqların ventilyasiyası</label>
-                        </div>
-                        <div class="extra_1">
-                            <input class="" id="5" type="checkbox">
-                            <label for="5">Mərkəzi qapanma</label>
-                            <input class="" id="6" type="checkbox">
-                            <label for="6">Park radarı</label>
-                            <input class="" id="7" type="checkbox">
-                            <label for="7">Ksenon lampalar</label>
-                            <input class="" id="8" type="checkbox">
-                            <label for="8">Lyuk</label>
-                        </div>
-                        <div class="extra_1">
-                            <input class="" id="9" type="checkbox">
-                            <label for="9">Kondisioner</label>
-                            <input class="" id="10" type="checkbox">
-                            <label for="10">Arxa görüntü kamerası</label>
-                            <input class="" id="11" type="checkbox">
-                            <label for="11">Oturacaqların isidilməsir</label>
-                            <input class="" id="12" type="checkbox">
-                            <label for="12">Yan pərdələr</label>
-                            <input class="" id="13" type="checkbox">
-                            <label for="13">Yağış sensoru</label>
-                        </div>
+                </div>
+                <div class="extra_details">
+                    <h3>Avtomobilin təchizatı</h3>
+                </div>
+                <div class="main_extra_details">
+                    <div class="extra_1">
+                        <input class="abs" id="1" type="checkbox">
+                        <label for="1">ABS</label>
 
+                        <input class="disk" id="2" type="checkbox">
+                        <label for="2">Yüngül lehimli disklər</label>
 
+                        <input class="salon" id="3" type="checkbox">
+                        <label for="3">Dəri salon</label>
+
+                        @*<input class="" id="4" type="checkbox">
+                <label for="4">Oturacaqların ventilyasiyası</label>*@
+
+                    </div>
+                    <div class="extra_1">
+                        <input class="centralSistem" id="5" type="checkbox">
+                        <label for="5">Mərkəzi qapanma</label>
+
+                        <input class="parkRadar" id="6" type="checkbox">
+                        <label for="6">Park radarı</label>
+
+                        <input class="ksenon" id="7" type="checkbox">
+                        <label for="7">Ksenon lampalar</label>
 
 
                     </div>
-                    <style>
-                        .ssi-imgToUpload {
-                            width: 300px !important;
-                            height: 300px !important;
-                        }
+                    <div class="extra_1">
+                        <input class="conditioner" id="9" type="checkbox">
+                        <label for="9">Kondisioner</label>
 
-                        .ssi-imgToUploadTable {
-                            width: 310px !important;
-                        }
-                    </style>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row photos">
-                                <div class="col-md-12 mb-2" id="">
-                                    <div style="background: #dadada; border-radius: 6px; position: relative; height: 100%;">
-                                        <label style="display: inline; margin: 0;">
-                                            <!-- <div class="text-center" style="border: 2px dashed #eee; border-radius: 6px; padding: 22px;  top: 10px; right: 10px; bottom: 10px; left: 10px;">
-                                                <i class="fa fa-cloud-upload" style="font-size: 80px"></i>
-                                                    <div>Şəkil yüklə</div>
-                                            </div> -->
-                                            <input type="file" name="images[]" multiple id="ssi-upload" />
-                                        </label>
-                                    </div>
+                        <input class="lyuk" id="8" type="checkbox">
+                        <label for="8">Lyuk</label>
 
+                        @*<input class="" id="10" type="checkbox">
+                <label for="10">Arxa görüntü kamerası</label>
+
+                <input class="" id="11" type="checkbox">
+                <label for="11">Oturacaqların isidilməsir</label>
+
+                <input class="" id="12" type="checkbox">
+                <label for="12">Yan pərdələr</label>
+
+                <input class="" id="13" type="checkbox">
+                <label for="13">Yağış sensoru</label>*@
+                    </div>
+
+
+
+
+                </div>
+                <div class="extra_details mt-2">
+                    <h3>Xüsüsi təklif</h3>
+                </div>
+                <div class="main_extra_details mb-2">
+                    <div class="extra_1">
+                        <input class="kredit" id="11" type="checkbox">
+                        <label for="11">Kreditdədir</label>
+
+                        <input class="barter" id="12" type="checkbox">
+                        <label for="12">Barter mümkündür</label>
+                    </div>
+                     
+
+
+
+                </div>
+                <style>
+                    .ssi-imgToUpload {
+                        width: 300px !important;
+                        height: 300px !important;
+                    }
+
+                    .ssi-imgToUploadTable {
+                        width: 310px !important;
+                    }
+                </style>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row photos">
+                            <div class="col-md-12 mb-2" id="">
+                                <div style="background: #dadada; border-radius: 6px; position: relative; height: 100%;">
+                                    <label style="display: inline; margin: 0;">
+                                        <!-- <div class="text-center" style="border: 2px dashed #eee; border-radius: 6px; padding: 22px;  top: 10px; right: 10px; bottom: 10px; left: 10px;">
+                                <i class="fa fa-cloud-upload" style="font-size: 80px"></i>
+                                    <div>Şəkil yüklə</div>
+                            </div> -->
+                                        <input type="file" class="fileImages" name="images[]" multiple id="ssi-upload" />
+                                    </label>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                    <div class="full_search hl">
-                        <div class="fırst " style="
-                                margin-bottom: 10px;
-                            ">
-                            <label for="">Adınız</label>
-                            <input class="inp" style="
-                                    width: 250px;
-                                " type="text" placeholder="Qasım">
-                        </div>
-                        <div class="second">
-                            <label for="">Nömrə</label>
-                            <input class="inp" data-inputmask='"mask": "(999) 999-99-99"' data-mask id="phone" style="
-                                    width: 250px;
-                                " type="tel" placeholder="(xxx) xxx-xx-xx">
-                        </div>
+                </div>
+                <div class="full_search hl mb-4">
+                    <div class="fırst " style=" margin-bottom: 10px; ">
+                        <label>Adınız <span class="redColor">*</span></label>
+                        <input class="inp username" style="  width: 250px; " type="text">
                     </div>
-                    <div class="main_search_button">
-                        <button>Elan yerləşdir</button>
-                        <button>VİP Elan yerləşdir</button>
+                    <div class="second">
+                        <label for="">E-mail <span class="redColor">*</span></label>
+                        <input class="inp email" style=" width: 250px; " type="email">
                     </div>
-                </form>
+                    <div class="second">
+                        <label for="">Nömrə</label>
+                        <input class="inp telefonNumber" style=" width: 250px; " type="tel">
+                    </div>
+                    <div class="fırst">
+                        <label>Şəhər<span class="redColor">*</span></label>
+                        <select class="search_result city">
+
+                            @foreach (var item in City)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="main_search_button">
+                    <button class="btnCreate">Elan yerləşdir</button>
+                    <button class="btnCreateVPN">VİP Elan yerləşdir</button>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
 @section Scripts{
+
+
     <script src="~/CustomScript/ChangeMarka.js"></script>
+    <script src="~/CustomScript/AddPost.js"></script>
 }

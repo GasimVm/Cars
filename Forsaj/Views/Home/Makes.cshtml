@@ -1,0 +1,31 @@
+﻿@using Forsaj.Models.Tables;
+@model List<Post>;
+@{
+    List<Model_Cars> model_Cars = ViewBag.ModelCars;
+}
+@{
+    ViewData["Title"] = "Makes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in model_Cars)
+        {
+            if (Model.Any(c => c.Model_CarsId == item.Id))
+            {
+
+            }
+        <div class="col-3" style=" height: 40px;">
+            <a href="../Home/ModelCars?id=@item.Id">
+                <span style="color:forestgreen">@Model.Where(c => c.Model_CarsId == item.Id).Count()</span> @item.Name
+            </a>
+        </div>
+            
+        }
+
+    </div>
+    </div>

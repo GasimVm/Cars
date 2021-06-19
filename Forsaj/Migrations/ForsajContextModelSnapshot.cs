@@ -37,59 +37,6 @@ namespace Forsaj.Migrations
                     b.ToTable("TBL_BAN_TYPE");
                 });
 
-            modelBuilder.Entity("Forsaj.Models.Tables.Cars_Details", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ID")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("ABS")
-                        .HasColumnType("bit")
-                        .HasColumnName("ABS");
-
-                    b.Property<bool>("Diski")
-                        .HasColumnType("bit")
-                        .HasColumnName("DISKI");
-
-                    b.Property<bool>("Dəri_Salon")
-                        .HasColumnType("bit")
-                        .HasColumnName("DERI_SALON");
-
-                    b.Property<bool>("Kamera")
-                        .HasColumnType("bit")
-                        .HasColumnName("KAMERA");
-
-                    b.Property<bool>("Kondisioner")
-                        .HasColumnType("bit")
-                        .HasColumnName("KONDISIONER");
-
-                    b.Property<bool>("Ksenon_Lampalar")
-                        .HasColumnType("bit")
-                        .HasColumnName("KSENON_LAMPALAR");
-
-                    b.Property<bool>("Lyuk")
-                        .HasColumnType("bit")
-                        .HasColumnName("LYUK");
-
-                    b.Property<bool>("Park_Radar")
-                        .HasColumnType("bit")
-                        .HasColumnName("PARK_RADAR");
-
-                    b.Property<bool>("Qapanma")
-                        .HasColumnType("bit")
-                        .HasColumnName("QAPANMA");
-
-                    b.Property<bool>("Sensor")
-                        .HasColumnType("bit")
-                        .HasColumnName("SENSOR");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TBL_CARS_DETAILS");
-                });
-
             modelBuilder.Entity("Forsaj.Models.Tables.City", b =>
                 {
                     b.Property<int>("Id")
@@ -196,6 +143,10 @@ namespace Forsaj.Migrations
                         .HasColumnType("bit")
                         .HasColumnName("CREATE_SISTEM");
 
+                    b.Property<bool>("Conditioner")
+                        .HasColumnType("bit")
+                        .HasColumnName("CONDITIONER");
+
                     b.Property<bool>("Disk")
                         .HasColumnType("bit")
                         .HasColumnName("DISK");
@@ -208,6 +159,13 @@ namespace Forsaj.Migrations
                         .HasColumnType("bit")
                         .HasColumnName("LYUK");
 
+                    b.Property<int?>("Model_CarsId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Model_Cars_Id")
+                        .HasColumnType("int")
+                        .HasColumnName("MODEL_CARS_ID");
+
                     b.Property<bool>("Park_Radar")
                         .HasColumnType("bit")
                         .HasColumnName("PARK_RADAR");
@@ -217,6 +175,8 @@ namespace Forsaj.Migrations
                         .HasColumnName("SALON");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Model_CarsId");
 
                     b.ToTable("TBL_DETAILS");
                 });
@@ -247,6 +207,14 @@ namespace Forsaj.Migrations
                         .HasColumnName("ID")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATE_DATE");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int")
+                        .HasColumnName("POST_ID");
+
                     b.Property<int>("Type")
                         .HasColumnType("int")
                         .HasColumnName("TYPE");
@@ -257,6 +225,8 @@ namespace Forsaj.Migrations
                         .HasColumnName("URL");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PostId");
 
                     b.ToTable("TBL_IMAGE");
                 });
@@ -354,10 +324,6 @@ namespace Forsaj.Migrations
                     b.Property<int?>("Ban_TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Ban_Type_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("BAN_TYPE_ID");
-
                     b.Property<bool>("Barter")
                         .HasColumnType("bit")
                         .HasColumnName("BARTER");
@@ -365,23 +331,11 @@ namespace Forsaj.Migrations
                     b.Property<int?>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("City_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("CITY_ID");
-
                     b.Property<int?>("ColorId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Color_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("COLOR_ID");
-
                     b.Property<int?>("CompanyId")
                         .HasColumnType("int");
-
-                    b.Property<int?>("Company_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("COMPANY_ID");
 
                     b.Property<int>("Count")
                         .HasColumnType("int")
@@ -390,34 +344,30 @@ namespace Forsaj.Migrations
                     b.Property<int?>("CountryId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Country_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("COUNTRY_ID");
-
                     b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasColumnName("CREATE_DATE");
+                        .HasColumnName("CREATE_DATE")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<int?>("CurrencyId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Currency_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("CURRENCY_ID");
-
                     b.Property<int?>("DetailsId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Details_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("DETAIL_ID");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("EMAIL");
 
                     b.Property<int?>("Fuel_TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Fuel_Type_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("FUEL_TYPE_ID");
+                    b.Property<int>("HPower")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Kredit")
                         .HasColumnType("bit")
@@ -425,10 +375,6 @@ namespace Forsaj.Migrations
 
                     b.Property<int?>("Model_CarsId")
                         .HasColumnType("int");
-
-                    b.Property<int?>("Model_Cars_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("MODEL_CARS_ID");
 
                     b.Property<string>("Name")
                         .HasMaxLength(150)
@@ -440,8 +386,7 @@ namespace Forsaj.Migrations
                         .HasColumnName("NOTE");
 
                     b.Property<int?>("PowerId")
-                        .HasColumnType("int")
-                        .HasColumnName("POWER_ID");
+                        .HasColumnType("int");
 
                     b.Property<int>("Price")
                         .HasColumnType("int")
@@ -454,10 +399,6 @@ namespace Forsaj.Migrations
                     b.Property<int?>("Speed_TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Speed_Type_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("SPEED_TYPE_ID");
-
                     b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("STATUS");
@@ -469,25 +410,19 @@ namespace Forsaj.Migrations
                     b.Property<int?>("TransmissionId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Transmission_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("TRANMISSION_ID");
-
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("UPDATE_DATE");
 
                     b.Property<int?>("UserId")
-                        .HasColumnType("int")
-                        .HasColumnName("USER_ID");
+                        .HasColumnType("int");
 
                     b.Property<bool>("VIP")
                         .HasColumnType("bit")
                         .HasColumnName("VIP");
 
                     b.Property<int?>("YearId")
-                        .HasColumnType("int")
-                        .HasColumnName("YEAR_ID");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -507,6 +442,8 @@ namespace Forsaj.Migrations
 
                     b.HasIndex("Fuel_TypeId");
 
+                    b.HasIndex("ImageId");
+
                     b.HasIndex("Model_CarsId");
 
                     b.HasIndex("PowerId");
@@ -520,31 +457,6 @@ namespace Forsaj.Migrations
                     b.HasIndex("YearId");
 
                     b.ToTable("TBL_POST");
-                });
-
-            modelBuilder.Entity("Forsaj.Models.Tables.Post_Images", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ID")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ImageId")
-                        .HasColumnType("int")
-                        .HasColumnName("IMAGE_ID");
-
-                    b.Property<int>("PostId")
-                        .HasColumnType("int")
-                        .HasColumnName("POST_ID");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ImageId");
-
-                    b.HasIndex("PostId");
-
-                    b.ToTable("POST_IMAGES");
                 });
 
             modelBuilder.Entity("Forsaj.Models.Tables.Power", b =>
@@ -740,6 +652,26 @@ namespace Forsaj.Migrations
                     b.ToTable("TBL_YEAR");
                 });
 
+            modelBuilder.Entity("Forsaj.Models.Tables.Details", b =>
+                {
+                    b.HasOne("Forsaj.Models.Tables.Model_Cars", "Model_Cars")
+                        .WithMany("Details")
+                        .HasForeignKey("Model_CarsId");
+
+                    b.Navigation("Model_Cars");
+                });
+
+            modelBuilder.Entity("Forsaj.Models.Tables.Image", b =>
+                {
+                    b.HasOne("Forsaj.Models.Tables.Post", "Post")
+                        .WithMany()
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+                });
+
             modelBuilder.Entity("Forsaj.Models.Tables.Model_Cars", b =>
                 {
                     b.HasOne("Forsaj.Models.Tables.Marka", "Marka")
@@ -782,6 +714,10 @@ namespace Forsaj.Migrations
                     b.HasOne("Forsaj.Models.Tables.Fuel_Type", "Fuel_Type")
                         .WithMany("Posts")
                         .HasForeignKey("Fuel_TypeId");
+
+                    b.HasOne("Forsaj.Models.Tables.Image", null)
+                        .WithMany("Posts")
+                        .HasForeignKey("ImageId");
 
                     b.HasOne("Forsaj.Models.Tables.Model_Cars", "Model_Cars")
                         .WithMany("Posts")
@@ -834,25 +770,6 @@ namespace Forsaj.Migrations
                     b.Navigation("User");
 
                     b.Navigation("Year");
-                });
-
-            modelBuilder.Entity("Forsaj.Models.Tables.Post_Images", b =>
-                {
-                    b.HasOne("Forsaj.Models.Tables.Image", "Image")
-                        .WithMany("Post_Images")
-                        .HasForeignKey("ImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Forsaj.Models.Tables.Post", "Post")
-                        .WithMany("Post_Images")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Image");
-
-                    b.Navigation("Post");
                 });
 
             modelBuilder.Entity("Forsaj.Models.Tables.User", b =>
@@ -946,7 +863,7 @@ namespace Forsaj.Migrations
 
             modelBuilder.Entity("Forsaj.Models.Tables.Image", b =>
                 {
-                    b.Navigation("Post_Images");
+                    b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("Forsaj.Models.Tables.Marka", b =>
@@ -956,12 +873,9 @@ namespace Forsaj.Migrations
 
             modelBuilder.Entity("Forsaj.Models.Tables.Model_Cars", b =>
                 {
-                    b.Navigation("Posts");
-                });
+                    b.Navigation("Details");
 
-            modelBuilder.Entity("Forsaj.Models.Tables.Post", b =>
-                {
-                    b.Navigation("Post_Images");
+                    b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("Forsaj.Models.Tables.Power", b =>

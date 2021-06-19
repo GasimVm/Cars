@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="login">
+                <div class="card card-default mt-3 mb-3">
+                    <div class="panel-intro text-center pb-0">
+                        <h2 class="logo-title">Qeydiyyat</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="FormAnswer"></div>
+                        <form class="ERA_FORMS" role="form" method="POST" action="">
+                            <div class="form-group">
+                                <label for="sender-name" class="control-label">Ad və Soyad:</label>
+                                <div class="input-icon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <input type="text"  name="names" class="form-control era_check username" placeholder="Adınız">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sender-email" class="control-label">Elektron poçt ünvanı:</label>
+                                <div class="input-icon">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <input type="email" name="email" class="form-control era_check email" placeholder="Elektron poçt ünvanı">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sender-tel" class="control-label">Əlaqə nömrəsi</label>
+                                <div class="input-icon">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <input type="tel" name="phone" class="form-control era_check_number phoneNumber " id="phone" data-inputmask='"mask": "(999) 999-99-99"' data-mask placeholder="(xxx) xxx-xx-xx">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="user-pass" class="control-label">Şifrə:</label>
+                                <div class="input-icon">
+                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                    <input type="password" name="password" class="form-control era_check password" placeholder="Şifrə">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="main_extra_details">
+                                    <input class="rules"  id="rule"   type="checkbox">
+                                    <label for="rule">Qeydiyyatdan keçməklə siz, FORSAJ.AZ-ın İstifadəçi razılaşması-nı qəbul etdiyinizi təsdiq edirsiniz.</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12 col-md-12 py-1">
+                                    <button type="button"   class="btn btn-primary btn-block registration">Göndər</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{ 
+    <script src="~/CustomScript/Registration.js"></script>
+}

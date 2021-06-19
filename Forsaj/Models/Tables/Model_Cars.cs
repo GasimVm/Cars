@@ -13,6 +13,8 @@ namespace Forsaj.Models.Tables
         public Model_Cars()
         {
             Posts = new HashSet<Post>();
+            Details = new HashSet<Details>();
+
         }
         [Column("ID")]
         public int Id { get; set; }
@@ -27,6 +29,8 @@ namespace Forsaj.Models.Tables
         public virtual Marka  Marka { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Details> Details { get; set; }
+
 
     }
 }

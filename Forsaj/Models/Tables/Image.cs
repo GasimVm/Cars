@@ -10,6 +10,11 @@ namespace Forsaj.Models.Tables
     [Table("TBL_IMAGE")]
     public class Image
     {
+        public Image()
+        {
+            Posts = new HashSet<Post>();
+        }
+
         [Column("ID")]
         public int Id { get; set; }
 
@@ -20,7 +25,12 @@ namespace Forsaj.Models.Tables
         [Column("TYPE")]
         public int Type { get; set; }
 
-        public virtual List<Post_Images> Post_Images { get; set; }
+        [Column("POST_ID")]
+        public int PostId { get; set; }
+        public virtual Post Post { get; set; }
+        [Column("CREATE_DATE")]
+        public DateTime CreateDate { get; set; }
 
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

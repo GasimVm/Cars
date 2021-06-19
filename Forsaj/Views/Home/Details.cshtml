@@ -1,0 +1,224 @@
+﻿@using Forsaj.Models.Tables;
+@model List<Forsaj.Models.Tables.Post>;
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    Post post = ViewBag.Post;
+    List<Image> carImage = ViewBag.CarImage;
+
+    List<Marka> Markas = ViewBag.Marka;
+    List<Model_Cars> ModelCars = ViewBag.ModelCars;
+    List<Country> Countries = ViewBag.Country;
+    List<Image> images = ViewBag.Images;
+
+}
+
+<section id="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12">
+                <div class="cars__ana">
+                    <div class="section-title section-title_top marg">
+                        <ul class="breadcrumbs">
+                            <li class="breadcrumbs-a"><a href="../Home/Makes?id=@post.Model_Cars.MarkaId">@post.Model_Cars.Marka.Name</a></li>
+                            <li class="breadcrumbs-a"><a href="../Home/ModelCars?id=@post.Model_Cars.Id">@post.Model_Cars.Name</a></li>
+                            <li class="breadcrumbs-i">@post.Id</li>
+                        </ul>
+                    </div>
+
+                    <div id="sync1" class="owl-carousel owl-theme">
+                        @*<div class="item">
+                            </div>*@
+
+                        @foreach (var item in carImage)
+                        {
+                            <div class="item">
+                                <a data-fancybox="gallery" href="~/Document/Files2021/@item.URL"><img src="~/Document/Files2021/@item.URL" width="100%"></a>
+                            </div>
+                        }
+                    </div>
+
+                    <div id="sync2" class="owl-carousel owl-theme">
+                        @foreach (var item in carImage)
+                        {
+                            <div class="item" id="itemHasan">
+                                <a data-fancybox="gallery" href="~/Document/Files2021/@item.URL"><img src="~/Document/Files2021/@item.URL" width="100%"></a>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="mashin_qiymeti desk">
+                        <div class="qiymet">
+                            @post.Price @post.Currency.Money
+                        </div>
+                        <div>
+                            @post.Model_Cars.Marka.Name
+                            @post.Model_Cars.Name
+                            @post.Power.Capacity
+                            @post.Year.Create_Year
+                            @post.Probeg km
+
+
+
+                        </div>
+                        <div>
+                            Əlaqə:<a href="">@post.Telefon</a>
+                        </div>
+                        <div class="mashin_melumati">
+                            <ul>
+                                <li>Baxış sayı:@post.Count</li>
+                                <li>Yeniləndi:@post.CreateDate.ToString("dd/MM/yyyy HH:mm")</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="eln_right">
+
+                        <table>
+                            <tr>
+                                <td>Marka</td>
+                                <td><a href="../Home/Makes?id=@post.Model_Cars.MarkaId"> @post.Model_Cars.Marka.Name</a></td>
+                            </tr>
+                            <tr>
+                                <td>Model</td>
+                                <td><a href="../Home/ModelCars?id=@post.Model_Cars.Id"> @post.Model_Cars.Name</a></td>
+                            </tr>
+                            <tr>
+                                <td>Buraxılış ili</td>
+                                <td><b>@post.Year.Create_Year</b></td>
+                            </tr>
+                            <tr>
+                                <td>Yürüş</td>
+                                <td><b>@post.Probeg km</b></td>
+                            </tr>
+                            <tr>
+                                <td>Ban tipi</td>
+                                <td>@post.Ban_Type.Name</td>
+                            </tr>
+                            <tr>
+                                <td>Mühərrik</td>
+                                <td>@post.Power.Capacity sm&#x00B3;, @post.Fuel_Type.Name</td>
+                            </tr>
+                            <tr>
+                                <td>Mühərrikin gücü</td>
+                                <td>@post.HPower a.g.</td>
+                            </tr>
+                            <tr>
+                                <td>Sürət qutusu</td>
+                                <td>@post.Speed_Type.Name </td>
+                            </tr>
+                            <tr>
+                                <td>Ötürücü tipi</td>
+                                <td> @post.Transmission.Name </td>
+                            </tr>
+                            <tr>
+                                <td>Rəngi</td>
+                                <td>@post.Color.Name </td>
+                            </tr>
+                            <tr>
+                                <td>Barter</td>
+                                <td>@(post.Barter  ? "Bəli" : "Xeyr")</td>
+                            </tr>
+                            <tr>
+                                <td>Kredit</td>
+                                <td> @(post.Kredit ? "Bəli" : "Xeyr") </td>
+                            </tr>
+                        </table>
+                        <div class="elave_avadanliq">
+                            <ul>
+                                @if (post.Details.ABS)
+                                {
+                                    <li>ABS</li>
+                                }
+                                @if (post.Details.Central_Sistem)
+                                {
+                                    <li>Mərkəzi qapanma</li>
+                                }
+                                @if (post.Details.Conditioner)
+                                {
+                                    <li>Kondisoner</li>
+                                }
+                                @if (post.Details.Disk)
+                                {
+                                    <li>Yüngül lehimli disklər</li>
+                                }
+                                @if (post.Details.Ksenon)
+                                {
+                                    <li>Ksenon lampalar</li>
+                                }
+                                @if (post.Details.Lyuk)
+                                {
+                                    <li>Lyuk  </li>
+                                }
+                                @if (post.Details.Park_Radar)
+                                {
+                                    <li>Park radarı</li>
+                                }
+                                @if (post.Details.Salon)
+                                {
+                                    <li>Dəri salon</li>
+                                }
+                            </ul>
+
+                            <p>
+                                @post.Note
+                            </p>
+                            <div class="buttons_vip">
+                                <button type="button" style="
+                                      margin: 0 20px 0 0;
+                                  " class="btn btn-services my-2 services-up text-center">
+                                    İrəli çək <span class="badgebtns badge-light">1 AZN</span>
+                                </button>
+                                <button type="button" class="btn btn-services my-2 services-up text-center ">VIP et <span class="badgebtns1 badge-light">8 AZN</span></button>
+                            </div>
+
+                        </div>
+                        <div class="mashin_qiymeti mob">
+                            <div class="qiymet">
+                                @post.Price @post.Currency.Money
+                            </div>
+                            <div>
+                                @post.Model_Cars.Marka.Name
+                                @post.Model_Cars.Name
+                                @post.Power.Capacity
+                                @post.Year.Create_Year
+                                @post.Probeg km
+                            </div>
+                            <div>
+                                Əlaqə:<a href="">@post.Telefon</a>
+                            </div>
+                            <div class="mashin_melumati">
+                                <ul>
+                                    <li>Baxış sayı:@post.Count</li>
+                                    <li>Yeniləndi:@post.CreateDate.ToString("dd/MM/yyyy HH:mm")</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                <div class="ata">
+                    <marquee behavior="" direction="">Burada reklam olacaq</marquee>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="elan">
+            <h3>Bənzər Elanlar</h3>
+            <a href="../Home/AllPost">Hamısını göstər</a>
+        </div>
+        <div class="ana">
+
+            @Html.Partial("_Cars")
+        </div>
+    </div>
+</div>

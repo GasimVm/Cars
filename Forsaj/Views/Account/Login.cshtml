@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="login">
+                <div class="card card-default mt-3 mb-3">
+                    <div class="panel-intro text-center pb-0">
+                        <h2 class="logo-title">Giriş</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="FormAnswer"></div>
+                         
+                            <div class="form-group">
+                                <label for="sender-email" class="control-label">Elektron poçt ünvanı:</label>
+                                <div class="input-icon">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <input type="email"   class="form-control era_check email" placeholder="Elektron poçt ünvanı">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-pass" class="control-label">Şifrə:</label>
+                                <div class="input-icon">
+                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                    <input type="password"   class="form-control era_check password" placeholder="Şifrə">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12 col-md-12 py-1">
+                                    <button type="button"   class="btn btn-primary btn-block login">Göndər</button>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="card-footer pb-0">
+                        <p class="text-center pull-left">
+                            <a href="registration.html">Qeydiyyat</a>
+                        </p>
+                        <p class="text-center pull-right">
+                            <a href="forgot.html">Şifrəmi unutmuşam</a>
+                        </p>
+                        <div style=" clear:both"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/CustomScript/Registration.js"></script>
+}
+

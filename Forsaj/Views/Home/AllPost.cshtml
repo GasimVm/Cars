@@ -1,0 +1,40 @@
+﻿@using Forsaj.Models.Tables;
+@model List<Forsaj.Models.Tables.Post>;
+
+
+@{
+    List<Marka> Markas = ViewBag.Marka;
+    List<Model_Cars> ModelCars = ViewBag.ModelCars;
+    List<Country> Countries = ViewBag.Country;
+    List<Image> images = ViewBag.Images;
+
+
+}
+@{
+    ViewData["Title"] = "AllPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="elan">
+                <h3>
+                    <a href="../Home/AllPost?isVip=true">
+                        Vip Elanlar
+                    </a>
+                </h3>
+                <a href="../Home/AllPost">Hamısını göstər</a>
+            </div>
+            <div class="ana">
+
+                @Html.Partial("_Cars");
+
+
+
+            </div>
+        </div>
+    </div>
+
+</section>
+

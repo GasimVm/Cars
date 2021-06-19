@@ -427,13 +427,13 @@ table.ssi-fileList tr.ssi-space > td {
   display: none;
 }
 
-.ssi-imgToUploadTable tr:first-child td:first-child {
+/*.ssi-imgToUploadTable tr:first-child td:first-child {
   height: 126px;
 }
 
 .ssi-imgToUploadTable tr td {
   width: 140px;
-}
+}*/
 
 .ssi-imgToUploadTable {
   border: 1px solid #e1e1e1;

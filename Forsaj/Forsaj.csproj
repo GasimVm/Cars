@@ -5,6 +5,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Document\Files2021\007ee5cc-cb70-44a2-9f9b-677828a857a266641_8yg-ZK6an-GwpopAyQR7wA.jpg" />
+    <None Include="wwwroot\Document\Files2021\041e2b82-3088-4568-a94b-09dfc4809ebe75507_LKY38Xic8sRcW4arE7pG3w.jpg" />
+    <None Include="wwwroot\Document\Files2021\1a6cbf47-f132-4194-bc5a-4c4940c2e1aa44416_hkObt0B-OASWvVxdyHupjw.jpg" />
+    <None Include="wwwroot\Document\Files2021\2ca234c0-5a2b-4e1f-a789-d60a2979e64466641_8yg-ZK6an-GwpopAyQR7wA.jpg" />
+    <None Include="wwwroot\Document\Files2021\48c63b66-bcfd-48f4-93ce-6de938eadb5b44416_hkObt0B-OASWvVxdyHupjw.jpg" />
+    <None Include="wwwroot\Document\Files2021\53b45aa7-3bdb-408a-b824-012832455b7b66641_8yg-ZK6an-GwpopAyQR7wA.jpg" />
+    <None Include="wwwroot\Document\Files2021\5b5a16da-6b8e-47ce-a993-488704f6812266641_8yg-ZK6an-GwpopAyQR7wA.jpg" />
+    <None Include="wwwroot\Document\Files2021\6754c312-32ce-4b6d-83d7-d3931234003975507_LKY38Xic8sRcW4arE7pG3w.jpg" />
+    <None Include="wwwroot\Document\Files2021\6c06bccb-5ab9-409d-ad9f-1c0331992a4a75507_LKY38Xic8sRcW4arE7pG3w.jpg" />
+    <None Include="wwwroot\Document\Files2021\6d8773bc-1eb8-4518-b1f6-db28c4b1fc1d75507_LKY38Xic8sRcW4arE7pG3w.jpg" />
+    <None Include="wwwroot\Document\Files2021\86a5d5c0-c64d-4195-9221-f3aefb211f2036663_0h9G6jSkAuLuG_Q4AFwrCw.jpg" />
+    <None Include="wwwroot\Document\Files2021\aa1.jpg" />
+    <None Include="wwwroot\Document\Files2021\aa2.jpg" />
+    <None Include="wwwroot\Document\Files2021\aa3.jpg" />
+    <None Include="wwwroot\Document\Files2021\aa4.jpg" />
+    <None Include="wwwroot\Document\Files2021\ac31d942-ec53-4571-85cb-e6859fcb6e9e44416_hkObt0B-OASWvVxdyHupjw.jpg" />
+    <None Include="wwwroot\Document\Files2021\ae2707a0-6661-4363-932e-354dc2920d4b66641_8yg-ZK6an-GwpopAyQR7wA.jpg" />
+    <None Include="wwwroot\Document\Files2021\ae3cbac9-6e5e-4d8b-a7aa-f67357eb57cb44416_hkObt0B-OASWvVxdyHupjw.jpg" />
+    <None Include="wwwroot\Document\Files2021\c2ce319f-a867-4f04-aef6-0c2f410a78ae36663_0h9G6jSkAuLuG_Q4AFwrCw.jpg" />
+    <None Include="wwwroot\Document\Files2021\cab62077-cc0c-40ef-b0d1-63ff325e5f6436663_0h9G6jSkAuLuG_Q4AFwrCw.jpg" />
+    <None Include="wwwroot\Document\Files2021\ddbc58a1-968e-4b45-a1d0-0a16581542c736663_0h9G6jSkAuLuG_Q4AFwrCw.jpg" />
+    <None Include="wwwroot\Document\Files2021\e432f709-fa35-4235-b40e-cc5755a9035c44416_hkObt0B-OASWvVxdyHupjw.jpg" />
+    <None Include="wwwroot\Document\Files2021\fbcf010f-cb75-458a-86e1-5f38ec2f3a2a36663_0h9G6jSkAuLuG_Q4AFwrCw.jpg" />
+    <None Include="wwwroot\Document\Files2021\fe354d96-2c79-438f-9812-ff5ab236ee0675507_LKY38Xic8sRcW4arE7pG3w.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
