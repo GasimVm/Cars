@@ -74,7 +74,7 @@
   .select {
     position: relative;
     display: flex;
-    width: 20em;
+    width: 16em;
     height: 3em;
     line-height: 3;
     background: rgb(0 98 83);

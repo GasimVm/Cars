@@ -39,6 +39,10 @@ namespace Forsaj.Models.Tables
 
         [Column("EMAIL")]
         public string Email { get; set; }
+
+        [Column("FIRST_IMAGE")]
+        public string First_Image { get; set; }
+
         [Column("CREATE_DATE")]
         public DateTime CreateDate { get; set; }
         [Column("UPDATE_DATE")]

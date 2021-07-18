@@ -8,6 +8,8 @@
     List<Marka> Markas = ViewBag.Marka;
     List<Model_Cars> ModelCars = ViewBag.ModelCars;
     List<Country> Countries = ViewBag.Country;
+    List<City> cities = ViewBag.City;
+    List<Year> years = ViewBag.Year;
     List<Image> images = ViewBag.Images;
 
 
@@ -17,13 +19,22 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="POST">
+                
                     <div id="advace__search">
                         <div class="main__search">
                             <div class="select">
                                 <select name="slct" id="Country">
                                     <option selected disabled>Ölkəni seçin</option>
                                     @foreach (var item in Countries)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="select">
+                                <select name="slct" id="City">
+                                    <option selected disabled>Şəhəri seçin</option>
+                                    @foreach (var item in cities)
                                     {
                                         <option value="@item.Id">@item.Name</option>
                                     }
@@ -52,23 +63,24 @@
                         <div class="main__search">
                             <div class="main__price">
                                 <label class="buraxilis" for="">Qiymət</label>
-                                <input type="number">
-                                <input type="number">
+                                <input class="priceMax" type="number">
+                                <input class="priceMin" type="number">
                             </div>
                             <div class="main__price">
                                 <label for="">Buraxılış</label>
                                 <div class="born__date">
-                                    <input type="number">
-                                    <input type="number">
+                                    <input class="yearMax" type="number">
+
+                                    <input class="yearMin" type="number">
                                 </div>
                             </div>
                             <div class="main__serach--button">
-                                <button>Axtar</button>
+                                <button class="btnFirstSearch">Axtar</button>
                                 <a href="../Home/Filter">Ətraflı axtar</a>
                             </div>
                         </div>
                     </div>
-                </form>
+                 
             </div>
         </div>
     </div>
@@ -100,4 +112,5 @@
 </div>
 @section Scripts{
     <script src="~/CustomScript/ChangeMarka.js"></script>
+    <script src="~/CustomScript/FirstSearch.js"></script>
 }

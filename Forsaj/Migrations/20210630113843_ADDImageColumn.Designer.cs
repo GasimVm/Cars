@@ -4,14 +4,16 @@ using Forsaj.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Forsaj.Migrations
 {
     [DbContext(typeof(ForsajContext))]
-    partial class ForsajContextModelSnapshot : ModelSnapshot
+    [Migration("20210630113843_ADDImageColumn")]
+    partial class ADDImageColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

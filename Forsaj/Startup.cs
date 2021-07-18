@@ -37,7 +37,7 @@ namespace Forsaj
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddSingleton<ISearch, Search>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<ForsajContext>(options =>
             {

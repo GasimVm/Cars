@@ -119,7 +119,7 @@ namespace Forsaj.Controllers
                 form.UserId = user.Id;
                 form.Name = username;
                 form.HPower = hpower;
-                
+                form.First_Image = attacList.First();
 
 
                 _context.Posts.Add(form).GetDatabaseValues();

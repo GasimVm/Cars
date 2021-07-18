@@ -35,6 +35,7 @@ $(document).ready(function () {
     
 
     $(".btnCreate").click(function () {
+          formData = new FormData();
         var postType = 'false';
         GetValue();
         formData.append('postType', postType);
@@ -42,6 +43,7 @@ $(document).ready(function () {
         
     });
     $(".btnCreateVPN").click(function () {
+        formData = new FormData();
         var postType = 'true';
         GetValue();
         formData.append('postType', postType);
@@ -51,7 +53,7 @@ $(document).ready(function () {
 
 })
 function GetValue() {
-    
+    formData = new FormData();
     var  attachList = [];
       modelId = $(".modelMarka option:selected").val();
       markaId = $("#Marka option:selected").val();
