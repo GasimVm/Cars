@@ -184,32 +184,32 @@ namespace Forsaj.Controllers
             bmp.Dispose();
             newImage.Save(url);
         }
-        public   void AddText2(string text, string url)
-        {
-            using (StreamWriter writer = new StreamWriter("hsn2.png", true))
-            {
-                using (StreamWriter writerImage = new StreamWriter(text, true))
-                {
-                    using (Watermarker watermarker = new Watermarker(url))
-                    {
-                        using (ImageWatermark watermark = new ImageWatermark(_env.WebRootPath + "/Custom/images/hsn2.png"))
-                        {
-                            // Set Watermark Properties
-                            watermark.X = 20;
-                            watermark.Y = 80;
-                            // Add watermark on image file and save the output
-                            watermarker.Add(watermark);
-                            watermark.Dispose();
-                            watermarker.Save(writerImage.);
-                        }
-                    }
-                }
-            }
+        //public   void AddText2(string text, string url)
+        //{
+        //    using (StreamWriter writer = new StreamWriter("hsn2.png", true))
+        //    {
+        //        using (StreamWriter writerImage = new StreamWriter(text, true))
+        //        {
+        //            using (Watermarker watermarker = new Watermarker(url))
+        //            {
+        //                using (ImageWatermark watermark = new ImageWatermark(_env.WebRootPath + "/Custom/images/hsn2.png"))
+        //                {
+        //                    // Set Watermark Properties
+        //                    watermark.X = 20;
+        //                    watermark.Y = 80;
+        //                    // Add watermark on image file and save the output
+        //                    watermarker.Add(watermark);
+        //                    watermark.Dispose();
+        //                    watermarker.Save(writerImage.);
+        //                }
+        //            }
+        //        }
+        //    }
 
           
 
 
-        }
+        //}
 
 
         public bool Test(string url,string filename)
@@ -217,7 +217,7 @@ namespace Forsaj.Controllers
               
             
             AddText("Kuza.az", url);
-            AddText2(filename, url);
+            //AddText2(filename, url);
 
             resizeImage(url, new Size(1024, 512));
 
