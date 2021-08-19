@@ -18,6 +18,7 @@ using GroupDocs.Watermark.Search;
 using GroupDocs.Watermark;
 using GroupDocs.Watermark.Watermarks;
 using System.IO;
+using TinifyAPI;
 
 namespace Forsaj.Controllers
 {
@@ -136,7 +137,8 @@ namespace Forsaj.Controllers
             return View(model);
         }
 
-         
+
+        #region Pulsuz 900kb salir
         public static void resizeImage(string url, Size size)
         {
             string firstText = "Kuza.az";
@@ -145,41 +147,44 @@ namespace Forsaj.Controllers
             {
                 using (Bitmap newImage = new Bitmap(image, size))
                 {
-                     
                     image.Dispose();
                     newImage.Save(url);
-                     
-
                     using (MagickImage imageCom = new MagickImage(url))
                     {
                         imageCom.Format = imageCom.Format; // Get or Set the format of the image.
                         newImage.Dispose();
-                        imageCom.Resize(size.Width,size.Height);
+                        imageCom.Resize(size.Width, size.Height);
+                   
                         imageCom.Quality = 100; // This is the Compression level.
+                    
                         imageCom.Write(url);
-
-                        
-                       
                     }
 
-                   
-                   
                 }
-
-               
             }
            
         }
+        #endregion
 
-        
+        #region Pullu
+        //public async void CompressImage(string url)
+        //{
+        //    Tinify.Key = "9438wTJW3BGz79sWfGdcb6W5jhbrm1Z2"; //TinyPNG Developer API KEY
+        //    string sFilePath = url;
+        //    string sOptimizedFile = url;
+        //    var source = Tinify.FromFile(sFilePath);
+        //    await source.ToFile(sOptimizedFile);
+        //}
+
+        #endregion
         public static void AddText(string text,string url)
         {
             var bmp = Bitmap.FromFile(url);
-            var newImage = new Bitmap(bmp.Width, bmp.Height + 10);
+            var newImage = new Bitmap(bmp.Width, bmp.Height + 20);
 
             var gr = Graphics.FromImage(newImage);
             gr.DrawImageUnscaled(bmp, 0, 0);
-            gr.DrawString(text, new System.Drawing.Font("Times New Roman", 16), Brushes.Aquamarine,
+            gr.DrawString(text, new System.Drawing.Font("Times New Roman", 20), Brushes.Black,
                 new RectangleF(40, bmp.Height-60, bmp.Width-20, 40));
             bmp.Dispose();
             newImage.Save(url);
@@ -212,15 +217,17 @@ namespace Forsaj.Controllers
         //}
 
 
+
+
         public bool Test(string url,string filename)
         {
-              
-            
-            AddText("Kuza.az", url);
+
+
+
             //AddText2(filename, url);
-
-            resizeImage(url, new Size(1024, 512));
-
+            
+            resizeImage(url, new Size(1024, 768));
+            //AddText("Kuza.az", url);
             return true;
         }
         public IActionResult AllPost(bool isVip=false)
