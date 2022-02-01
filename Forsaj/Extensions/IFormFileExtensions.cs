@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ImageProcessor;
+using ImageProcessor.Plugins.WebP.Imaging.Formats;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,8 +47,30 @@ namespace Forsaj.Extensions
             {
                 await image.CopyToAsync(steam);
             }
+
+            string imagesPath = Path.Combine(root, "Document", "images");
+            string webPFileName = Path.GetFileNameWithoutExtension(image.FileName) + ".webp";
+            string normalImagePath = Path.Combine(imagesPath, image.FileName);
+            string webPImagePath = Path.Combine(imagesPath, webPFileName);
+
+            // Save the image in its original format for fallback
+            using (FileStream normalFileStream = new FileStream(normalImagePath, FileMode.Create))
+            {
+                image.CopyTo(normalFileStream);
+            }
+            // Then save in WebP format
+            using (FileStream webPFileStream = new FileStream(webPImagePath, FileMode.Create))
+            {
+                using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
+                {
+                    imageFactory.Load(image.OpenReadStream())
+                                .Format(new WebPFormat())
+                                .Quality(50)
+                                .Save(webPFileStream);
+                }
+            }
             return fullname;
         }
-
+      
     }
 }

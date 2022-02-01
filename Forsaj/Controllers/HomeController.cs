@@ -19,6 +19,9 @@ using GroupDocs.Watermark;
 using GroupDocs.Watermark.Watermarks;
 using System.IO;
 using TinifyAPI;
+using ImageProcessor;
+using ImageProcessor.Plugins.WebP.Imaging.Formats;
+using Microsoft.AspNetCore.Http;
 
 namespace Forsaj.Controllers
 {
@@ -139,32 +142,59 @@ namespace Forsaj.Controllers
 
 
         #region Pulsuz 900kb salir
-        public static void resizeImage(string url, Size size)
-        {
-            string firstText = "Kuza.az";
-            PointF firstLocation = new PointF(10f, 10f);
-            using (Image image = Image.FromFile(url))
-            {
-                using (Bitmap newImage = new Bitmap(image, size))
-                {
-                    image.Dispose();
-                    newImage.Save(url);
-                    using (MagickImage imageCom = new MagickImage(url))
-                    {
-                        imageCom.Format = imageCom.Format; // Get or Set the format of the image.
-                        newImage.Dispose();
-                        imageCom.Resize(size.Width, size.Height);
+        //public static void resizeImage(string url, Size size)
+        //{
+        //    string firstText = "Kuza.az";
+        //    PointF firstLocation = new PointF(10f, 10f);
+        //    using (Image image = Image.FromFile(url))
+        //    {
+        //        using (Bitmap newImage = new Bitmap(image, size))
+        //        {
+        //            image.Dispose();
+        //            newImage.Save(url);
+        //            using (MagickImage imageCom = new MagickImage(url))
+        //            {
+        //                imageCom.Format = imageCom.Format; // Get or Set the format of the image.
+        //                newImage.Dispose();
+        //                imageCom.Resize(size.Width, size.Height);
                    
-                        imageCom.Quality = 100; // This is the Compression level.
+        //                imageCom.Quality = 100; // This is the Compression level.
                     
-                        imageCom.Write(url);
-                    }
+        //                imageCom.Write(url);
+        //            }
 
+        //        }
+        //    }
+           
+        //}
+        #endregion
+
+        public   void rezizeImage(IFormFile image)
+        {
+            string imagesPath = Path.Combine(_env.WebRootPath, "images");
+            string webPFileName = Path.GetFileNameWithoutExtension(image.FileName) + ".webp";
+            string normalImagePath = Path.Combine(imagesPath, image.FileName);
+            string webPImagePath = Path.Combine(imagesPath, webPFileName);
+
+            // Save the image in its original format for fallback
+            using (FileStream normalFileStream = new FileStream(normalImagePath, FileMode.Create))
+            {
+                image.CopyTo(normalFileStream);
+            }
+            // Then save in WebP format
+            using (FileStream webPFileStream = new FileStream(webPImagePath, FileMode.Create))
+            {
+                using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
+                {
+                    imageFactory.Load(image.OpenReadStream())
+                                .Format(new WebPFormat())
+                                .Quality(50)
+                                .Save(webPFileStream);
                 }
             }
-           
+
+
         }
-        #endregion
 
         #region Pullu
         //public async void CompressImage(string url)
@@ -225,8 +255,8 @@ namespace Forsaj.Controllers
 
 
             //AddText2(filename, url);
-            
-            resizeImage(url, new Size(1024, 768));
+
+            //resizeImage(url, new Size(1024, 768));
             //AddText("Kuza.az", url);
             return true;
         }

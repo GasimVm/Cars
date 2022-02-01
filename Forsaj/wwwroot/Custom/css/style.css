@@ -828,14 +828,14 @@ textarea{
 }
 .btn .badgebtns {
     position: absolute;
-    bottom: 90px;
+    bottom: 37px;
     right: 277px;
     background-color: #1894a0;
     color: #fff;
 }
 .btn .badgebtns1 {
     position: absolute;
-    bottom: 90px;
+    bottom: 37px;
     right: 185px;
     background-color: #1894a0;
     color: #fff;
@@ -899,7 +899,7 @@ textarea{
 
     .header {
         padding-top: 0;
-        width: 112%;
+        width: 114%;
         height: auto;
         overflow: auto;
         visibility: visible;
